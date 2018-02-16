@@ -1,0 +1,26 @@
+[general]
+creator=R package 'raster'
+created=2018-01-24 09:24:30
+[georeference]
+nrows=2901
+ncols=2919
+xmin=325187.351036431
+ymin=11447670.1763999
+xmax=1358513.35103643
+ymax=12518719.3763999
+projection=+proj=utm +zone=43 +south +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0
+[data]
+datatype=FLT8S
+byteorder=little
+nbands=1
+bandorder=BIL
+categorical=FALSE
+minvalue=-26.539569385394
+maxvalue=1839.97985416827
+nodatavalue=-1.7e+308
+[legend]
+legendtype=
+values=
+color=
+[description]
+layername=BigTerrain2
