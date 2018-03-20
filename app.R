@@ -78,6 +78,7 @@ ui <- fluidPage(
             #                          "Rivers"=3),
             #             selected=1),
             h3("Manual input of coordinates"),
+            helpText("Please choose a point in 40-90 degrees East, 8-25 degrees North"),
             textInput("easting", "Degrees East:"),
             textInput("northing", "Degrees North:"),
             actionButton("enLocation", "Go to location")
@@ -276,9 +277,9 @@ server <- function(input, output) {
         # }
     })
     
-    observeEvent(errorPoint$er,{
-                 showNotification("Please choose a point in 40-90 degrees East, 8-25 degrees North", duration=5, closeButton=T, type="error")
-        })
+    # observeEvent(errorPoint$er,{
+    #              showNotification("Please choose a point in 40-90 degrees East, 8-25 degrees North", duration=5, closeButton=T, type="error")
+    #     })
     
     output$tableOP = renderTable({
         if(!is.null(location$Z)){
