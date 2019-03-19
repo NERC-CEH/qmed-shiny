@@ -1,10 +1,9 @@
-# Adam Griffin, 2018-??-??, updated 2019-03-15
+all# Adam Griffin, 2018-??-??, updated 2019-03-15
 # Shiny app for QMED estimation
 
 
 require(shiny)
 library(ggplot2)
-library(ggmap)
 library(shinythemes)
 library(sp)
 library(raster)
@@ -14,6 +13,7 @@ library(dplyr)
 library(htmltools)
 library(here)
 library(shinycssloaders)
+library(lmom)
 
 ### SETUP ###
 
@@ -21,13 +21,13 @@ polygons <- readOGR("./data","NotProjectedPolygons")
 polygons <- polygons[order(polygons@data$Area0, decreasing=T),]
 summary <- read.csv("./data/stationSummary_20171006.csv", 
                     stringsAsFactors=F, header=T, row.names=1)
-terrain <- raster("./data/terrainA.grd")
+#terrain <- raster("./data/terrainA.grd")
 rivers <- readOGR("./data","riversGK")
-amax_dir <- dir("../../../Data/AMAX_New", full.names=T, pattern=".csv")
+amax_dir <- dir("./data/AMAX_New", full.names=T, pattern=".csv")
 load(here("data/amax_list_app.RDa"))
 
 yf <- function(f){ - log((1 - f) / f) }  # Reduced logistic variate
-yfgum <- function(f){ -1 * log(-1 * log(f))} # Gumnbel variate
+yfgum <- function(f){ -1 * log(-1 * log(f))} # Gumbel variate
 
 ##### UI #####
 ui <- fluidPage(
